@@ -22,7 +22,7 @@ fd.connect((err) => {
 });
 
 
-app.get("/install", function(req, res){
+app.get("/", function(req, res){
 
     const  proTable = "CREATE TABLE if not exists Customers (id int auto_increment, first_name varchar(255) not null, last_name varchar(255) not null, email varchar(255) not null, password varchar(255), PRIMARY KEY (id))";
 
@@ -105,10 +105,10 @@ app.post("/sign", function(req, res){
 });
 
 app.post("/failure", function(req, res) {
-    res.redirect("/install");
+    res.redirect("/");
 });
 app.post("/success", function(req, res) {
-    res.redirect("/install");
+    res.redirect("/");
 });
 app.listen(process.env.POST || 4000, function(){
     console.log("Server is on port 4000.");
